@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torneio Mythology MD3</title>
+  <meta name="description" content="Painel do campeonato Torneio Mythology MD3 integrado ao Google Sheets." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-inner shell">
+      <div class="brand-row">
+        <div class="brand-mark">
+          <img src="brand-logo.svg" alt="Logo" onerror="this.style.display='none'"/>
+        </div>
+        <div>
+          <div class="eyebrow">AGE OF MYTHOLOGY RETOLD</div>
+          <h1 id="site-title">Torneio Mythology MD3</h1>
+          <p id="site-subtitle">Campeonato em duplas • MD3 • Google Sheets</p>
+        </div>
+      </div>
+      <div class="hero-status">
+        <div class="status-chip" id="refresh-chip">Atualizando…</div>
+        <div class="status-chip neutral" id="source-chip">Google Sheets</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="top-nav shell">
+    <button class="nav-btn active" data-target="inicio">Início</button>
+    <button class="nav-btn" data-target="equipes">Equipes</button>
+    <button class="nav-btn" data-target="oitavas">Oitavas</button>
+    <button class="nav-btn" data-target="quartas">Quartas</button>
+    <button class="nav-btn" data-target="semifinal">Semifinal</button>
+    <button class="nav-btn" data-target="triangular">Triangular</button>
+    <button class="nav-btn" data-target="final">Final</button>
+    <button class="nav-btn" data-target="patrocinadores">Patrocinadores</button>
+    <button class="nav-btn" data-target="campeoes">Campeões</button>
+    <button class="nav-btn" data-target="regras">Regras</button>
+  </nav>
+
+  <main class="shell">
+    <section id="inicio" class="view active">
+      <div class="stats-grid">
+        <article class="stat-card"><span>Duplas ativas</span><strong id="stat-teams">0</strong></article>
+        <article class="stat-card"><span>Séries finalizadas</span><strong id="stat-finished">0</strong></article>
+        <article class="stat-card"><span>Séries em andamento</span><strong id="stat-live">0</strong></article>
+        <article class="stat-card"><span>Triangular</span><strong id="stat-tri">0/3</strong></article>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">visão rápida</div>
+            <h2>Fase atual</h2>
+          </div>
+        </div>
+        <div id="home-current-phase" class="phase-mini-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">situação</div>
+            <h2>Classificação do Triangular</h2>
+          </div>
+        </div>
+        <div id="home-tri-standings"></div>
+      </section>
+    </section>
+
+    <section id="equipes" class="view">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">duplas</div><h2>Equipes cadastradas</h2></div></div>
+        <div id="teams-grid" class="teams-grid"></div>
+      </div>
+    </section>
+
+    <section id="oitavas" class="view phase-view">
+      <div class="panel"><div class="panel-head"><div><div class="eyebrow">fase</div><h2>Oitavas</h2></div></div><div id="phase-oitavas"></div></div>
+    </section>
+    <section id="quartas" class="view phase-view">
+      <div class="panel"><div class="panel-head"><div><div class="eyebrow">fase</div><h2>Quartas</h2></div></div><div id="phase-quartas"></div></div>
+    </section>
+    <section id="semifinal" class="view phase-view">
+      <div class="panel"><div class="panel-head"><div><div class="eyebrow">fase</div><h2>Semifinal</h2></div></div><div id="phase-semifinal"></div></div>
+    </section>
+    <section id="triangular" class="view phase-view">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">fase</div><h2>Triangular</h2></div></div>
+        <div id="tri-standings"></div>
+        <div id="phase-triangular"></div>
+      </div>
+    </section>
+    <section id="final" class="view phase-view">
+      <div class="panel"><div class="panel-head"><div><div class="eyebrow">fase</div><h2>Final</h2></div></div><div id="phase-final"></div></div>
+    </section>
+
+    <section id="patrocinadores" class="view">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">⭐💰 apoio</div><h2>Patrocinadores</h2></div></div>
+        <div id="sponsors-grid" class="sponsors-grid"></div>
+      </div>
+    </section>
+
+    <section id="campeoes" class="view">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">🏅 histórico</div><h2>Campeões</h2></div></div>
+        <div id="champions-grid" class="champions-grid"></div>
+      </div>
+    </section>
+
+    <section id="regras" class="view">
+      <div class="panel">
+        <div class="panel-head"><div><div class="eyebrow">explicação</div><h2>Como funciona</h2></div></div>
+        <div class="rules-text">
+          <p><strong>Partidas</strong> são os jogos dentro da MD3.</p>
+          <p><strong>Vitória</strong> é vencer a série melhor de 3.</p>
+          <p><strong>Pontos</strong> são usados na classificação do triangular.</p>
+          <p>Cada série pode ter até 3 jogos. Quem ganhar 2 jogos primeiro vence.</p>
+          <p>No triangular, cada equipe enfrenta as outras duas. A classificação usa pontos, vitórias e saldo de partidas.</p>
+          <p>Os jogadores podem escolher novos deuses em cada série. Os picks, bans e deuses usados aparecem dentro de cada confronto.</p>
+          <p class="warn" id="local-warn"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

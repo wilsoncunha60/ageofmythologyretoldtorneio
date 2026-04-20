@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" role="img" aria-labelledby="title desc">
+  <title id="title">Age of Mythology Retold</title>
+  <desc id="desc">Wordmark estilo fantasia para o painel Retold Arena.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f7e4a0"/>
+      <stop offset="50%" stop-color="#d5b76a"/>
+      <stop offset="100%" stop-color="#8d6a2b"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" x2="1">
+      <stop offset="0%" stop-color="#dbe7ff"/>
+      <stop offset="100%" stop-color="#6ea8f6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="560" height="220" rx="34" fill="#08111e"/>
+  <rect x="4" y="4" width="552" height="212" rx="30" fill="none" stroke="#355d95" stroke-width="2" opacity="0.7"/>
+  <path d="M72 46 L102 18 L132 46 L118 46 L118 92 L86 92 L86 46 Z" fill="url(#steel)" opacity="0.95"/>
+  <path d="M102 92 L122 128 L102 202 L82 128 Z" fill="url(#gold)" filter="url(#glow)"/>
+  <path d="M66 126 H138" stroke="#c9dcff" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+  <path d="M154 56 H512" stroke="#31537e" stroke-width="2" opacity="0.6"/>
+  <path d="M154 164 H512" stroke="#31537e" stroke-width="2" opacity="0.6"/>
+  <text x="156" y="72" font-size="28" font-family="Georgia, 'Times New Roman', serif" fill="#d6e4ff" letter-spacing="7">AGE OF</text>
+  <text x="156" y="126" font-size="58" font-weight="700" font-family="Georgia, 'Times New Roman', serif" fill="url(#gold)" letter-spacing="2">MYTHOLOGY</text>
+  <text x="156" y="170" font-size="30" font-family="Georgia, 'Times New Roman', serif" fill="#dbe7ff" letter-spacing="8">RETOLD</text>
+</svg>
